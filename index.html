@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tia | Software Engineer</title>
+    <title>TIA · Technology in Action</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
@@ -19,7 +19,7 @@
         }
 
         .gradient-text {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #5EB761 0%, #3d8f4a 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -43,7 +43,7 @@
             position: absolute;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
+            background: linear-gradient(90deg, #5EB761, #3d8f4a);
             bottom: -5px;
             left: 0;
             transition: width 0.3s ease;
@@ -53,28 +53,94 @@
             width: 100%;
         }
 
-        .skill-tag {
+        .roadmap-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+
+        .roadmap-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(94, 183, 97, 0.15);
+            border-color: #5EB761;
+        }
+
+        /* Modal Dark Theme */
+        #roadmapModal {
+            background: rgba(16, 16, 16, 0.95);
+            backdrop-filter: blur(8px);
+        }
+
+        #roadmapModal .modal-box {
+            background: #1a1f26;
+            border: 1px solid #2a2f36;
+            border-radius: 1.5rem;
+        }
+
+        #roadmapModal .modal-box pre {
+            background: #101010;
+            color: #d0d0d0;
+            border: 1px solid #2a2f36;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            font-size: 0.85rem;
+            line-height: 1.8;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            font-family: 'Cascadia Code', 'Fira Code', monospace;
+        }
+
+        #roadmapModal .modal-box pre::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        #roadmapModal .modal-box pre::-webkit-scrollbar-track {
+            background: #101010;
+        }
+
+        #roadmapModal .modal-box pre::-webkit-scrollbar-thumb {
+            background: #5EB761;
+            border-radius: 10px;
+        }
+
+        #roadmapModal .modal-box::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        #roadmapModal .modal-box::-webkit-scrollbar-track {
+            background: #1a1f26;
+        }
+
+        #roadmapModal .modal-box::-webkit-scrollbar-thumb {
+            background: #5EB761;
+            border-radius: 10px;
+        }
+
+        .copy-btn {
             transition: all 0.2s ease;
         }
 
-        .skill-tag:hover {
+        .copy-btn:hover {
+            color: #5EB761;
             transform: scale(1.05);
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            color: white;
         }
     </style>
 </head>
 
 <body class="bg-gray-50 text-gray-800 antialiased">
+
     <!-- Navigation -->
     <nav class="bg-white/90 backdrop-blur-md shadow-sm fixed w-full z-50 py-4">
         <div class="container mx-auto px-6 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold gradient-text">TIA</a>
+            <a href="#" class="flex items-center gap-3">
+                <img src="tialogo.png" alt="TIA Logo" class="h-10 w-auto">
+                <span class="text-2xl font-bold gradient-text">TIA</span>
+            </a>
             <div class="space-x-8 hidden md:flex">
                 <a href="#home" class="nav-link font-medium text-gray-700 hover:text-gray-900">Home</a>
                 <a href="#about" class="nav-link font-medium text-gray-700 hover:text-gray-900">About</a>
-                <a href="#skills" class="nav-link font-medium text-gray-700 hover:text-gray-900">Skills</a>
-                <a href="#projects" class="nav-link font-medium text-gray-700 hover:text-gray-900">Projects</a>
+                <a href="#roadmaps" class="nav-link font-medium text-gray-700 hover:text-gray-900">Roadmaps</a>
+                <a href="#vision" class="nav-link font-medium text-gray-700 hover:text-gray-900">Vision</a>
                 <a href="#contact" class="nav-link font-medium text-gray-700 hover:text-gray-900">Contact</a>
             </div>
             <button class="md:hidden text-2xl text-gray-700">
@@ -84,72 +150,77 @@
     </nav>
 
     <!-- Hero -->
-    <section id="home" class="pt-32 pb-20 px-6 text-center">
+    <section id="home" class="pt-32 pb-20 px-6 text-center bg-gradient-to-b from-gray-50 to-white">
         <div class="max-w-4xl mx-auto">
+            <div class="flex justify-center mb-8">
+                <img src="tialogo.png" alt="TIA Logo" class="w-24 h-24 object-contain">
+            </div>
             <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                Software Engineer<br>Building
-                <span class="gradient-text">Scalable & High-Quality Applications</span>
+                Technology in <span class="gradient-text">Action</span>
             </h1>
             <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
-                I design and build scalable, maintainable software using clean architecture and modern engineering
-                practices across web and cross-platform applications.
+                Curated roadmaps and explanations to help you navigate the tech landscape in 2026 and beyond.
             </p>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="#projects"
-                    class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition shadow-lg font-semibold">
-                    <i class="fas fa-code mr-2"></i>View My Work
+                <a href="#roadmaps"
+                    class="bg-gradient-to-r from-green-600 to-green-700 text-white px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition shadow-lg font-semibold">
+                    <i class="fas fa-map-signs mr-2"></i>Explore Roadmaps
                 </a>
-                <a href="#contact"
+                <a href="#about"
                     class="bg-white text-gray-800 border border-gray-300 px-8 py-3 rounded-lg hover:bg-gray-50 font-semibold shadow-sm">
-                    <i class="fas fa-paper-plane mr-2"></i>Get In Touch
+                    <i class="fas fa-info-circle mr-2"></i>Learn More
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- About -->
+    <!-- About / Who's TIA -->
     <section id="about" class="py-20 px-6 bg-white">
         <div class="max-w-5xl mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-16">About Me</h2>
+            <h2 class="text-4xl font-bold text-center mb-16">Who's TIA?</h2>
             <div class="md:flex items-center gap-12">
                 <div class="md:w-2/5 mb-10 md:mb-0 flex justify-center">
                     <div class="relative">
                         <div class="w-64 h-64 rounded-2xl overflow-hidden shadow-2xl">
                             <div
-                                class="w-full h-full bg-gradient-to-br from-indigo-100 to-purple-100 flex items-center justify-center">
-                                <i class="fas fa-laptop-code text-7xl text-indigo-500"></i>
+                                class="w-full h-full bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center">
+                                <img src="tialogo.png" alt="TIA Logo" class="w-40 h-40 object-contain">
                             </div>
-                            <!-- <img src="mypic.png" alt="Your Name" class="w-full h-full object-cover" /> -->
                         </div>
                         <div
-                            class="absolute -bottom-4 -right-4 w-20 h-20 bg-gradient-to-r from-purple-900 to-purple-500 rounded-2xl shadow-xl flex items-center justify-center">
-                            <span class="text-white font-bold text-2xl">5+</span>
+                            class="absolute -bottom-4 -right-4 w-20 h-20 bg-gradient-to-r from-green-700 to-green-500 rounded-2xl shadow-xl flex items-center justify-center">
+                            <span class="text-white font-bold text-2xl">2026</span>
                         </div>
                     </div>
                 </div>
                 <div class="md:w-3/5">
                     <p class="text-lg mb-6 leading-relaxed">
-                        I am a <span class="font-semibold text-indigo-700">Full-Stack Software Engineer</span>
-                        specializing in
-                        <span class="font-semibold">Python, JavaScript, React, Node.js, and modern cloud
-                            platforms</span>, building
-                        scalable and maintainable systems.
+                        <span class="font-semibold text-green-700">TIA (Technology in Action)</span> is your curated
+                        guide to the tech world.
+                    </p>
+                    <p class="text-lg mb-6 leading-relaxed">
+                        We believe in <span class="font-semibold">cutting through the noise</span>, no endless
+                        tutorials, no information overload. Just clear, actionable roadmaps and explanations that help
+                        you learn what actually matters.
                     </p>
                     <p class="text-lg mb-8 leading-relaxed">
-                        I enjoy solving complex problems, optimizing performance, and contributing to open-source while
-                        exploring new
-                        technologies.
+                        Whether you're a beginner finding your path or a seasoned engineer exploring new frontiers,
+                        <span class="font-semibold">TIA</span> is your launchpad for <span class="font-semibold">2026
+                            and
+                            beyond</span>.
                     </p>
-
-
-                    <div class="flex items-center space-x-6">
-                        <div class="flex items-center">
-                            <div class="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
-                            <span class="text-gray-700">Available for freelance</span>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center bg-green-50 px-4 py-2 rounded-full">
+                            <i class="fas fa-check-circle text-green-600 mr-2"></i>
+                            <span class="text-gray-700">Curated content</span>
                         </div>
-                        <div class="flex items-center">
-                            <div class="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
-                            <span class="text-gray-700">NOT open to full‑time roles</span>
+                        <div class="flex items-center bg-green-50 px-4 py-2 rounded-full">
+                            <i class="fas fa-check-circle text-green-600 mr-2"></i>
+                            <span class="text-gray-700">Practical & actionable</span>
+                        </div>
+                        <div class="flex items-center bg-green-50 px-4 py-2 rounded-full">
+                            <i class="fas fa-check-circle text-green-600 mr-2"></i>
+                            <span class="text-gray-700">Built for 2026</span>
                         </div>
                     </div>
                 </div>
@@ -157,178 +228,285 @@
         </div>
     </section>
 
-    <!-- Skills -->
-    <section id="skills" class="py-20 px-6 bg-gradient-to-b from-gray-50 to-white">
+    <!-- Roadmaps -->
+    <section id="roadmaps" class="py-20 px-6 bg-gradient-to-b from-gray-50 to-white">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-16">Technical Skills</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <!-- Category 1 -->
-                <div class="bg-white p-6 rounded-2xl shadow-lg card-hover">
-                    <div class="text-4xl text-indigo-600 mb-4">
-                        <i class="fas fa-code"></i>
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Roadmaps</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Curated learning paths to master the technologies that matter in 2026.
+                </p>
+            </div>
+
+            <!-- Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Card 1: How to Start in Tech 2026 -->
+                <div class="roadmap-card bg-white rounded-2xl p-6 shadow-sm">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-green-100 text-green-700">🚀
+                            Roadmap</span>
+                        <span class="text-xs text-green-600 font-medium">Live</span>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Frontend</h3>
-                    <div class="space-y-2">
-                        <div
-                            class="skill-tag bg-indigo-50 text-indigo-800 px-4 py-2 rounded-full text-center font-medium">
-                            React</div>
-                        <div
-                            class="skill-tag bg-indigo-50 text-indigo-800 px-4 py-2 rounded-full text-center font-medium">
-                            TypeScript</div>
-                        <div
-                            class="skill-tag bg-indigo-50 text-indigo-800 px-4 py-2 rounded-full text-center font-medium">
-                            Tailwind CSS</div>
-                        <div
-                            class="skill-tag bg-indigo-50 text-indigo-800 px-4 py-2 rounded-full text-center font-medium">
-                            Next.js</div>
+                    <h3 class="text-xl font-bold mb-2">How to Start in Tech 2026</h3>
+                    <p class="text-gray-600 text-sm mb-4">Minimal. Practical. No fluff. Just the PATH.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs px-3 py-1 bg-gray-100 rounded-full text-gray-600">Mindset</span>
+                        <span class="text-xs px-3 py-1 bg-gray-100 rounded-full text-gray-600">AI</span>
+                        <span class="text-xs px-3 py-1 bg-gray-100 rounded-full text-gray-600">6-Month Plan</span>
                     </div>
+                    <button onclick="openModal('start2026')"
+                        class="w-full py-2 rounded-lg border border-green-600 text-green-600 font-medium hover:bg-green-600 hover:text-white transition">
+                        <i class="fas fa-arrow-right mr-2"></i>Open Roadmap
+                    </button>
                 </div>
-                <!-- Category 2 -->
-                <div class="bg-white p-6 rounded-2xl shadow-lg card-hover">
-                    <div class="text-4xl text-purple-600 mb-4">
-                        <i class="fas fa-server"></i>
+
+                <!-- Card 2: Web Development 2026 -->
+                <div class="roadmap-card bg-white rounded-2xl p-6 shadow-sm opacity-60">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-gray-200 text-gray-600">🌐
+                            Roadmap</span>
+                        <span class="text-xs text-gray-400">Coming soon</span>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Backend</h3>
-                    <div class="space-y-2">
-                        <div
-                            class="skill-tag bg-purple-50 text-purple-800 px-4 py-2 rounded-full text-center font-medium">
-                            Python</div>
-                        <div
-                            class="skill-tag bg-purple-50 text-purple-800 px-4 py-2 rounded-full text-center font-medium">
-                            Node.js</div>
-                        <div
-                            class="skill-tag bg-purple-50 text-purple-800 px-4 py-2 rounded-full text-center font-medium">
-                            PostgreSQL</div>
-                        <div
-                            class="skill-tag bg-purple-50 text-purple-800 px-4 py-2 rounded-full text-center font-medium">
-                            REST APIs</div>
+                    <h3 class="text-xl font-bold mb-2">Web Development 2026</h3>
+                    <p class="text-gray-600 text-sm mb-4">Modern web development - from HTML to full-stack frameworks
+                        with AI.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs px-3 py-1 bg-gray-100 rounded-full text-gray-600">React</span>
+                        <span class="text-xs px-3 py-1 bg-gray-100 rounded-full text-gray-600">Next.js</span>
+                        <span class="text-xs px-3 py-1 bg-gray-100 rounded-full text-gray-600">Node</span>
                     </div>
+                    <button disabled
+                        class="w-full py-2 rounded-lg border border-gray-300 text-gray-400 font-medium cursor-not-allowed">
+                        <i class="fas fa-clock mr-2"></i>Coming Soon
+                    </button>
                 </div>
-                <!-- Category 3 -->
-                <div class="bg-white p-6 rounded-2xl shadow-lg card-hover">
-                    <div class="text-4xl text-blue-600 mb-4">
-                        <i class="fas fa-cloud"></i>
+
+                <!-- Card 3: Mobile Development 2026 -->
+                <div class="roadmap-card bg-white rounded-2xl p-6 shadow-sm opacity-60">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-gray-200 text-gray-600">📱
+                            Roadmap</span>
+                        <span class="text-xs text-gray-400">Coming soon</span>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">DevOps & Tools</h3>
-                    <div class="space-y-2">
-                        <div class="skill-tag bg-blue-50 text-blue-800 px-4 py-2 rounded-full text-center font-medium">
-                            Docker</div>
-                        <div class="skill-tag bg-blue-50 text-blue-800 px-4 py-2 rounded-full text-center font-medium">
-                            AWS</div>
-                        <div class="skill-tag bg-blue-50 text-blue-800 px-4 py-2 rounded-full text-center font-medium">
-                            Git & GitHub</div>
-                        <div class="skill-tag bg-blue-50 text-blue-800 px-4 py-2 rounded-full text-center font-medium">
-                            CI/CD</div>
+                    <h3 class="text-xl font-bold mb-2">Mobile Development 2026</h3>
+                    <p class="text-gray-600 text-sm mb-4">Native and cross-platform mobile development for iOS and
+                        Android with AI.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs px-3 py-1 bg-gray-100 rounded-full text-gray-600">React Native</span>
+                        <span class="text-xs px-3 py-1 bg-gray-100 rounded-full text-gray-600">Flutter</span>
+                        <span class="text-xs px-3 py-1 bg-gray-100 rounded-full text-gray-600">Swift</span>
                     </div>
+                    <button disabled
+                        class="w-full py-2 rounded-lg border border-gray-300 text-gray-400 font-medium cursor-not-allowed">
+                        <i class="fas fa-clock mr-2"></i>Coming Soon
+                    </button>
                 </div>
-                <!-- Category 4 -->
-                <div class="bg-white p-6 rounded-2xl shadow-lg card-hover">
-                    <div class="text-4xl text-green-600 mb-4">
-                        <i class="fas fa-mobile-alt"></i>
+
+            </div>
+
+            <!-- Coming Soon Banner -->
+            <div class="mt-12 text-center">
+                <p class="text-gray-500">
+                    <i class="fas fa-plus-circle text-green-600 mr-2"></i>
+                    More roadmaps and explanations coming soon. <span class="font-semibold text-green-600">Stay
+                        tuned!</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision -->
+    <section id="vision" class="py-20 px-6 bg-white">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16">Our Vision</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center p-6 rounded-2xl bg-gray-50 card-hover">
+                    <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-compass text-2xl text-green-600"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Cross‑Platform</h3>
-                    <div class="space-y-2">
-                        <div
-                            class="skill-tag bg-green-50 text-green-800 px-4 py-2 rounded-full text-center font-medium">
-                            React Native</div>
-                        <div
-                            class="skill-tag bg-green-50 text-green-800 px-4 py-2 rounded-full text-center font-medium">
-                            Electron</div>
-                        <div
-                            class="skill-tag bg-green-50 text-green-800 px-4 py-2 rounded-full text-center font-medium">
-                            Flutter</div>
-                        <div
-                            class="skill-tag bg-green-50 text-green-800 px-4 py-2 rounded-full text-center font-medium">
-                            PWA</div>
+                    <h3 class="text-xl font-bold mb-3">Clarity</h3>
+                    <p class="text-gray-600">Cut through the noise. Know exactly what to learn and why.</p>
+                </div>
+                <div class="text-center p-6 rounded-2xl bg-gray-50 card-hover">
+                    <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-bolt text-2xl text-green-600"></i>
                     </div>
+                    <h3 class="text-xl font-bold mb-3">Action</h3>
+                    <p class="text-gray-600">No theory without practice. Every roadmap is built for real-world
+                        application.</p>
+                </div>
+                <div class="text-center p-6 rounded-2xl bg-gray-50 card-hover">
+                    <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-users text-2xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Community</h3>
+                    <p class="text-gray-600">Learn together, grow together. TIA is built by and for the tech community.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
+
     <!-- Contact -->
-    <section id="contact" class="py-20 px-6 bg-gradient-to-b from-white to-gray-50">
+    <section id="contact" class="py-20 px-6 bg-[#101010] border-t border-[#2a2f36]">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl font-bold mb-8">Let's Build Something Great</h2>
-            <p class="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
-                I'm currently available for freelance projects, and technical
-                collaborations.
+            <h2 class="text-4xl font-bold mb-8 text-white">Join the Journey</h2>
+            <p class="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
+                Have ideas for roadmaps? Want to contribute? Let's build something great together.
             </p>
             <div class="flex flex-wrap justify-center gap-8 text-4xl mb-16">
                 <a href="mailto:tiasolveit@gmail.com"
-                    class="text-gray-700 hover:text-red-600 transition-transform hover:scale-110" title="Email">
+                    class="text-gray-400 hover:text-green-500 transition-transform hover:scale-110" title="Email">
                     <i class="fas fa-envelope"></i>
                 </a>
                 <a href="https://github.com/tiasolveit" target="_blank"
-                    class="text-gray-700 hover:text-gray-900 transition-transform hover:scale-110" title="GitHub">
+                    class="text-gray-400 hover:text-white transition-transform hover:scale-110" title="GitHub">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="https://linkedin.com/in/tiasolveit" target="_blank"
-                    class="text-gray-700 hover:text-blue-700 transition-transform hover:scale-110" title="LinkedIn">
+                <a href="https://www.linkedin.com/in/tiasolveit" target="_blank"
+                    class="text-gray-400 hover:text-blue-400 transition-transform hover:scale-110" title="LinkedIn">
                     <i class="fab fa-linkedin"></i>
                 </a>
                 <a href="https://x.com/tiasolveit" target="_blank"
-                    class="text-gray-700 hover:text-cyan-700 transition-transform hover:scale-110" title="X">
+                    class="text-gray-400 hover:text-cyan-400 transition-transform hover:scale-110" title="X">
                     <i class="fab fa-twitter"></i>
                 </a>
+                <a href="https://www.instagram.com/tiasolveit" target="_blank"
+                    class="text-gray-400 hover:text-pink-500 transition-transform hover:scale-110" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.tiktok.com/@tiasolveit" target="_blank"
+                    class="text-gray-400 hover:text-white transition-transform hover:scale-110" title="TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
             </div>
-            <!-- <div class="bg-white rounded-2xl shadow-lg p-8 max-w-xl mx-auto">
-                <h3 class="text-2xl font-bold mb-6">Send a Direct Message</h3>
-                <form id="contactForm" class="space-y-6 text-left">
-                    <div>
-                        <label class="block text-gray-700 mb-2">Name</label>
-                        <input type="text"
-                            class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                            placeholder="Your name">
-                    </div>
-                    <div>
-                        <label class="block text-gray-700 mb-2">Email</label>
-                        <input type="email"
-                            class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                            placeholder="you@example.com">
-                    </div>
-                    <div>
-                        <label class="block text-gray-700 mb-2">Message</label>
-                        <textarea rows="4"
-                            class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                            placeholder="Tell me about your project..."></textarea>
-                    </div>
-                    <button type="submit"
-                        class="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold py-3 rounded-lg hover:shadow-xl transition">
-                        <i class="fas fa-paper-plane mr-2"></i>Send Message
-                    </button>
-                </form>
-            </div> -->
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-10 text-center">
+    <footer class="bg-[#101010] text-white py-10 text-center border-t border-[#1a1f26]">
         <div class="max-w-6xl mx-auto px-6">
-            <p class="text-2xl font-bold mb-6 gradient-text">TIA</p>
-            <p class="text-gray-400 mb-8">Crafting high‑quality software with precision and passion.</p>
+            <div class="flex justify-center items-center gap-3 mb-6">
+                <img src="tialogo.png" alt="TIA Logo" class="h-10 w-auto">
+                <p class="text-2xl font-bold gradient-text">TIA</p>
+            </div>
+            <p class="text-gray-400 mb-8">Technology in Action — Roadmaps for the curious.</p>
             <div class="flex justify-center space-x-8 text-gray-400 mb-8">
                 <a href="#home" class="hover:text-white">Home</a>
                 <a href="#about" class="hover:text-white">About</a>
-                <a href="#skills" class="hover:text-white">Skills</a>
-                <a href="#projects" class="hover:text-white">Projects</a>
+                <a href="#roadmaps" class="hover:text-white">Roadmaps</a>
+                <a href="#vision" class="hover:text-white">Vision</a>
                 <a href="#contact" class="hover:text-white">Contact</a>
             </div>
             <p class="text-gray-500 text-sm">
-                © <span id="year"></span> Tia. All rights reserved.
-                <span class="block mt-2">Built with HTML5, Tailwind CSS, and a focus on engineering
-                    excellence.</span>
+                © <span id="year"></span> TIA. All rights reserved.
             </p>
         </div>
     </footer>
 
+    <!-- Modal -->
+    <div id="roadmapModal" class="fixed inset-0 hidden z-50 flex items-center justify-center p-4">
+        <div class="modal-box max-w-3xl w-full max-h-[90vh] overflow-y-auto p-8 relative">
+            <!-- Copy Button -->
+            <button onclick="copyContent()"
+                class="copy-btn absolute top-4 right-16 text-gray-400 hover:text-green-500 text-xl transition z-10"
+                title="Copy content">
+                <i class="fas fa-copy"></i>
+            </button>
+            <!-- Close Button -->
+            <button onclick="closeModal()"
+                class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl transition z-10">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
     <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-        // Form placeholder behavior
-        document.getElementById('contactForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-            alert('Thank you for your message! But this is just a demo form. You can send me a gmail on tiasolveit@gmail.com instead.');
+        const modal = document.getElementById('roadmapModal');
+        const modalContent = document.getElementById('modalContent');
+
+        const roadmapMeta = {
+            start2026: {
+                title: '🚀 How to Start in Tech 2026',
+                subtitle: 'Minimal. Practical. No fluff. Just the PATH.'
+            }
+        };
+
+        function openModal(key) {
+            const meta = roadmapMeta[key];
+            if (!meta) return;
+
+            fetch(`roadmaps/${key}.txt`)
+                .then(response => {
+                    if (!response.ok) throw new Error('Not found');
+                    return response.text();
+                })
+                .then(content => {
+                    modalContent.innerHTML = `
+                        <h2 class="text-2xl font-bold mb-2 text-white">${meta.title}</h2>
+                        <p class="text-gray-400 mb-4">${meta.subtitle}</p>
+                        <pre>${content}</pre>
+                    `;
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                })
+                .catch(() => {
+                    modalContent.innerHTML = `
+                        <h2 class="text-2xl font-bold mb-2 text-white">Oops!</h2>
+                        <p class="text-gray-400">Roadmap not found. Coming soon!</p>
+                    `;
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                });
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        function copyContent() {
+            const pre = modalContent.querySelector('pre');
+            if (pre) {
+                const text = pre.textContent;
+                navigator.clipboard.writeText(text).then(() => {
+                    const btn = document.querySelector('.copy-btn');
+                    const originalHTML = btn.innerHTML;
+                    btn.innerHTML = '<i class="fas fa-check text-green-500"></i>';
+                    setTimeout(() => {
+                        btn.innerHTML = originalHTML;
+                    }, 2000);
+                }).catch(() => {
+                    const range = document.createRange();
+                    range.selectNode(pre);
+                    window.getSelection().removeAllRanges();
+                    window.getSelection().addRange(range);
+                    document.execCommand('copy');
+                    window.getSelection().removeAllRanges();
+                    const btn = document.querySelector('.copy-btn');
+                    const originalHTML = btn.innerHTML;
+                    btn.innerHTML = '<i class="fas fa-check text-green-500"></i>';
+                    setTimeout(() => {
+                        btn.innerHTML = originalHTML;
+                    }, 2000);
+                });
+            }
+        }
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
         });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
+        });
+
+        document.getElementById('year').textContent = new Date().getFullYear();
     </script>
+
 </body>
 
 </html>
